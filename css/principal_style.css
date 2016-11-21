@@ -136,7 +136,7 @@ table img {
 }
 .box_link a:link, a:visited {
     background-color: #4CAF50;
-    color: white;
+    color: black;
     padding: 14px 25px;
     text-align: center;
     text-decoration: none;

@@ -22,7 +22,7 @@ if (empty($_SESSION["login"]) && $_SESSION["validou"] != true) {
                 </div>
                 <div class="titulo">
                     <span><i class="fa fa-user fa-lg"></i> <?= $_SESSION["nome"]; ?></span><br/>     
-                    <a href="?pg=editSenha&id=<?= $_SESSION["id"] ?>"><i class="fa fa-key fa-lg"></i> Alterar Senha</a>
+                    <a href="?pg=altersenha&id=<?= $_SESSION["id"] ?>"><i class="fa fa-key fa-lg"></i> Alterar Senha</a>
                 </div>
                 <div class="sair">                    
                     <a href="logout.php"><i class="fa fa-sign-out fa-1x"></i> Sair</a><br/>                    
@@ -33,8 +33,8 @@ if (empty($_SESSION["login"]) && $_SESSION["validou"] != true) {
                     <ul>
                         <li><a href="?pg=home" <?= (@$_GET["pg"] == "home" || empty($_GET["pg"])) ? "class='active'" : ""; ?>><i class="fa fa-home fa-1x"></i> Home</a></li>
                         <li><a href="?pg=funcionarios" <?= (@$_GET["pg"] == "funcionarios") ? "class='active'" : ""; ?>><i class="fa fa-users fa-1x"></i> Funcionários</a></li>
-                        <li><a href="?pg=marcas" <?= (@$_GET["pg"] == "marcas") ? "class='active'" : ""; ?>><i class="fa fa-registered fa-1x"></i> Marcas</a></li>
-                        <li><a href="?pg=produtos" <?= (@$_GET["pg"] == "produtos") ? "class='active'" : ""; ?>><i class="fa fa-box fa-1x"></i> Produtos</a></li>
+                        <li><a href="?pg=categoria" <?= (@$_GET["pg"] == "categoria") ? "class='active'" : ""; ?>><i class="fa fa-registered fa-1x"></i> Categoria</a></li>
+                        <li><a href="?pg=produtos" <?= (@$_GET["pg"] == "produtos") ? "class='active'" : ""; ?>><i class="fa fa-dropbox fa-1x"></i> Produtos</a></li>
                     </ul>  
                 </div>
                 <div id="content-main">
