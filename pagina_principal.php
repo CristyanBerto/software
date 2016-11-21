@@ -17,8 +17,8 @@ if (empty($_SESSION["login"]) && $_SESSION["validou"] != true) {
         <div id="container">
             <div id="header">
                 <div class="titulo">
-                    <h2><i class="fa fa-car fa-3x"></i> Pesadão Eletrônicos</h2>
-                    <span>Rio do Sul, <?= Date("d/m/Y"); ?></span><br> 
+                    <h2><i><img src="img/onlinelogomaker-070116-0812 (1).png" width="200px" height="100px"></i></h2>
+                    <span>Rio do Sul, <?= Date("d/m/Y"); ?></span> 
                 </div>
                 <div class="titulo">
                     <span><i class="fa fa-user fa-lg"></i> <?= $_SESSION["nome"]; ?></span><br/>     
@@ -34,7 +34,7 @@ if (empty($_SESSION["login"]) && $_SESSION["validou"] != true) {
                         <li><a href="?pg=home" <?= (@$_GET["pg"] == "home" || empty($_GET["pg"])) ? "class='active'" : ""; ?>><i class="fa fa-home fa-1x"></i> Home</a></li>
                         <li><a href="?pg=funcionarios" <?= (@$_GET["pg"] == "funcionarios") ? "class='active'" : ""; ?>><i class="fa fa-users fa-1x"></i> Funcionários</a></li>
                         <li><a href="?pg=marcas" <?= (@$_GET["pg"] == "marcas") ? "class='active'" : ""; ?>><i class="fa fa-registered fa-1x"></i> Marcas</a></li>
-                        <li><a href="?pg=veiculos" <?= (@$_GET["pg"] == "veiculos") ? "class='active'" : ""; ?>><i class="fa fa-car fa-1x"></i> Veículos</a></li>
+                        <li><a href="?pg=produtos" <?= (@$_GET["pg"] == "produtos") ? "class='active'" : ""; ?>><i class="fa fa-box fa-1x"></i> Produtos</a></li>
                     </ul>  
                 </div>
                 <div id="content-main">
