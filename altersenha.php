@@ -16,7 +16,7 @@ $atualizar = $DaoFuncionario->getFuncionario($id);
 <br>
 <div class="formulario">
     <form method="post">
-        <input type="hidden" name="id" value="<?= $atualizar["id"] ?>"/>        
+        <input type="hidden" name="cpf_funcionarios" value="<?= $atualizar["cpf_funcionarios"] ?>"/>        
         <label>Nome Completo:</label>
         <input type="text" name="nome" value="<?= $atualizar["nome"] ?>" disabled/>
         <br/>     
@@ -49,7 +49,7 @@ if (isset($_POST["botao"])) {
         . "</script>";
     } else {
         $funcionario = new Funcionario();
-        $funcionario->setId($_POST["id"]);
+        $funcionario->setCpf_funcionarios($_POST["cpf_funcionarios"]);
         $funcionario->setSenha($novaSenha);
         $DaoFuncionario = DaoFuncionario::getInstance();
 

@@ -35,6 +35,7 @@ if (empty($_SESSION["login"]) && $_SESSION["validou"] != true) {
                         <li><a href="?pg=funcionarios" <?= (@$_GET["pg"] == "funcionarios") ? "class='active'" : ""; ?>><i class="fa fa-users fa-1x"></i> Funcionários</a></li>
                         <li><a href="?pg=categoria" <?= (@$_GET["pg"] == "categoria") ? "class='active'" : ""; ?>><i class="fa fa-registered fa-1x"></i> Categoria</a></li>
                         <li><a href="?pg=produtos" <?= (@$_GET["pg"] == "produtos") ? "class='active'" : ""; ?>><i class="fa fa-dropbox fa-1x"></i> Produtos</a></li>
+                        <li><a href="?pg=clientes" <?= (@$_GET["pg"] == "clientes") ? "class='active'" : ""; ?>><i class="fa fa-smile-o fa-1x"></i> Clientes</a></li>
                     </ul>  
                 </div>
                 <div id="content-main">

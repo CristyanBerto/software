@@ -87,12 +87,14 @@ class DaoFuncionario {
 
     public function atualizar(Funcionario $funcionarios) {
         try {
-            $sql = "UPDATE funcionarios set nome =:nome, login=:login"
+            $sql = "UPDATE funcionarios set nome =:nome, usuario=:usuario, funcao=:funcao, endereco=:endereco"
                     . " WHERE cpf_funcionarios=:id";
             $p_sql = Conexao::getInstance()->prepare($sql);
-            $p_sql->bindValue(":id", $funcionarios->getId());
+            $p_sql->bindValue(":id", $funcionarios->getCpf_funcionarios());
             $p_sql->bindValue(":nome", $funcionarios->getNome());
-            $p_sql->bindValue(":login", $funcionarios->getLogin());
+            $p_sql->bindValue(":usuario", $funcionarios->getLogin());
+            $p_sql->bindValue(":funcao", $funcionarios->getFuncao());
+            $p_sql->bindValue(":endereco", $funcionarios->getEndereco());
             return $p_sql->execute();
         } catch (PDOException $exc) {
             return $exc->getMessage();
@@ -104,7 +106,7 @@ class DaoFuncionario {
             $sql = "UPDATE funcionarios set senha =:senha"
                     . " WHERE cpf_funcionarios=:id";
             $p_sql = Conexao::getInstance()->prepare($sql);
-            $p_sql->bindValue(":id", $funcionarios->getId());
+            $p_sql->bindValue(":id", $funcionarios->getCpf_funcionarios());
             $p_sql->bindValue(":senha", $funcionarios->getSenha());
             return $p_sql->execute();
         } catch (PDOException $exc) {
