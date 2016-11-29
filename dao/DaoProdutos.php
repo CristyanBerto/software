@@ -1,7 +1,7 @@
 <?php
 
 require_once 'Conexao.php';
-require_once 'model/Produtos.php';
+require_once 'model/produtos.php';
 
 class DaoProdutos {
 
@@ -23,17 +23,20 @@ class DaoProdutos {
                     . " (descricao,"
                     . " categoria_id,"
                     . " preco,"
-                    . " imagem) "
+                    . " imagem,"
+                    . " promocao) "
                     . " VALUES "
                     . " (:descricao,"
                     . " :categoria_id,"
                     . " :preco,"
-                    . " :imagem)";
+                    . " :imagem,"
+                    . " :promocao)";
             $p_sql = Conexao::getInstance()->prepare($sql);
             $p_sql->bindValue(":descricao", $produtos->getDescricao());
             $p_sql->bindValue(":categoria_id", $produtos->getCategoria());
             $p_sql->bindValue(":preco", $produtos->getPreco());
             $p_sql->bindValue(":imagem", $produtos->getImagem());
+            $p_sql->bindValue(":promocao", $produtos->getPromocao());
             return $p_sql->execute();
         } catch (PDOException $exc) {
             return $exc->getMessage();
@@ -45,6 +48,7 @@ class DaoProdutos {
                 . " produtos.descricao,"
                 . " produtos.preco,"
                 . " produtos.imagem,"
+                . " produtos.promocao,"
                 . " categoria.descricao as categoria"
                 . " FROM produtos, categoria"
                 . " WHERE produtos.categoria_id = categoria.id "
@@ -88,7 +92,7 @@ class DaoProdutos {
 
     public function atualizar(Produtos $produtos) {
         try {
-            $sql = "UPDATE produtos set descricao =:descricao, preco=:preco, categoria_id=:categoria,imagem=:imagem"
+            $sql = "UPDATE produtos set descricao =:descricao, preco=:preco, categoria_id=:categoria,imagem=:imagem,promocao=:promocao"
                     . " WHERE id_produto=:id";
             $p_sql = Conexao::getInstance()->prepare($sql);
             $p_sql->bindValue(":id", $produtos->getId());
@@ -96,6 +100,7 @@ class DaoProdutos {
             $p_sql->bindValue(":preco", $produtos->getPreco());
             $p_sql->bindValue(":categoria", $produtos->getCategoria());
             $p_sql->bindValue(":imagem", $produtos->getImagem());
+            $p_sql->bindValue(":promocao", $produtos->getPromocao());
             return $p_sql->execute();
         } catch (PDOException $exc) {
             return $exc->getMessage();

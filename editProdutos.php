@@ -16,7 +16,7 @@ $atualizar = $DaoProdutos->getProdutos($id);
 <br>
 <div class="formulario">
     <form method="post" enctype="multipart/form-data">
-        <input type="hidden" name="id" value="<?= $atualizar["id"] ?>"/>  
+        <input type="hidden" name="id" value="<?= $atualizar["id_produto"] ?>"/>  
         <label>Descrição do Produto:</label>
         <input type="text" name="descricao" required value="<?= $atualizar["descricao"] ?>"/>
         <br/>
@@ -40,6 +40,12 @@ $atualizar = $DaoProdutos->getProdutos($id);
         <label>Preço:</label>
         <input type="text" name="preco" required value="<?= $atualizar["preco"] ?>"/>
         <br/>
+        <label>Promoção?</label>
+        <select name="promocao">
+            <option value="0" <?=($atualizar["promocao"]==0)?"selected":"";?>>Não</option>
+            <option value="1" <?=($atualizar["promocao"]==1)?"selected":"";?>>Sim</option>
+        </select>
+        <br/>
         <label>Imagem Atual:</label><br>
         <input type="image" name="imagem_atual" src="fotos/<?= $atualizar["imagem"] ?>" width="200">
         <br/>
@@ -59,9 +65,10 @@ if (isset($_POST["botao"])) {
     $produtos->setDescricao($_POST["descricao"]);
     $produtos->setCategoria($_POST["categoria"]);
     $produtos->setPreco($_POST["preco"]);    
+    $produtos->setPromocao($_POST["promocao"]);    
 
     /*     * *upload de imagem* */
-    if ($atualizar["imagem"] != $_FILES["imagem"]["name"]) {        
+    if ($atualizar["imagem"] != $_FILES["imagem"]["name"] && !empty($_FILES["imagem"]["name"])) {        
         $pastaDestino = "fotos/";
         $arquivoDestino = $pastaDestino . basename($_FILES["imagem"]["name"]);
         //apaga imagem atual para trocar pela nova

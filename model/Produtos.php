@@ -6,7 +6,16 @@ class Produtos {
     private $categoria;
     private $preco;
     private $imagem;
+    private $promocao;
     
+    function getPromocao() {
+        return $this->promocao;
+    }
+
+    function setPromocao($promocao) {
+        $this->promocao = $promocao;
+    }
+        
     function getId() {
         return $this->id;
     }

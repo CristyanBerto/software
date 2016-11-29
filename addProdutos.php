@@ -29,6 +29,12 @@
         <label>Preço:</label>
         <input type="text" name="preco" required/>
         <br/>
+        <label>Promoção?</label>
+        <select name="promocao">
+            <option value="0">Não</option>
+            <option value="1">Sim</option>
+        </select>
+        <br/>
         <label>Imagem:</label>
         <input type="file" name="imagem" required/>
         <br/>
@@ -44,13 +50,16 @@ if (isset($_POST["botao"])) {
     $produtos->setCategoria($_POST["categoria"]);
     $produtos->setPreco($_POST["preco"]);
     $produtos->setImagem($_FILES["imagem"]["name"]);
-    
-    /***upload de imagem**/
+    $produtos->setPromocao($_POST["promocao"]);
+
+    /*     * *upload de imagem* */
     $pastaDestino = "fotos/";
-    $arquivoDestino = $pastaDestino.basename($_FILES["imagem"]["name"]);  
+    $arquivoDestino = $pastaDestino . basename($_FILES["imagem"]["name"]);
     move_uploaded_file($_FILES["imagem"]["tmp_name"], $arquivoDestino);
-    chown($arquivoDestino, 777);    
-    /***fim do upload***/
+    chown($arquivoDestino, 777);
+    /*     * *fim do upload** */
+
+
 
     $DaoProdutos = DaoProdutos::getInstance();
     $exe = $DaoProdutos->inserir($produtos);

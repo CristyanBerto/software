@@ -9,7 +9,7 @@ $atualizar = $DaoCategoria->getCategoria($id);
 </div>
 <br>
 <div class="box_link">
-    <a href="?pg=categorias">Voltar</a>
+    <a href="?pg=categoria">Voltar</a>
 </div>
 <br>
 <hr>
