@@ -67,5 +67,20 @@ class DaoCliente{
         $p_sql->execute();
         return $p_sql->fetch(PDO::FETCH_ASSOC);
     }
+    
+    public function atualizar(Cliente $clientes) {
+        try {
+            $sql = "UPDATE clientes set cpf=:cpf, nome=:nome, endereco=:endereco, telefone=:telefone"
+                    . " WHERE cpf=:cpf";
+            $p_sql = Conexao::getInstance()->prepare($sql);
+            $p_sql->bindValue(":cpf", $clientes->getCpf());
+            $p_sql->bindValue(":nome", $clientes->getNome());
+            $p_sql->bindValue(":endereco", $clientes->getEndereco());
+            $p_sql->bindValue(":telefone", $clientes->getTelefone());
+            return $p_sql->execute();
+        } catch (PDOException $exc) {
+            return $exc->getMessage();
+        }
+    }
 }    
     
