@@ -9,9 +9,10 @@ if (empty($_SESSION["login"]) && $_SESSION["validou"] != true) {
 <html>
     <head>
         <meta charset="UTF-8">
-        <title></title>
+        <title>Software Pesadão</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
         <link rel="stylesheet" href="css/principal_style.css" type="text/css" media="all"/>
+        <link rel="icon" href="img/inhegascartoon.jpg" type="image/x-icon"/>
     </head>
     <body>
         <div id="container">
