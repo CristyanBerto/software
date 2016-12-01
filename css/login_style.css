@@ -2,10 +2,10 @@
     margin: 0;
     padding: 0;
 }
-body {
+.body body {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 12px;
-    background-image: url("../img/galaxia2.jpg");
+    background-image: url("img/crislaxia.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -43,3 +43,5 @@ div {
     width: 400px;
     margin: 80px auto;    
 }
+
+
